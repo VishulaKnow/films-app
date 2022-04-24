@@ -1,4 +1,4 @@
-import { Film } from "../../../film/film";
+import { Film } from "../../../film/Film";
 import { Fetcher } from "../../Fetcher";
 import { DbApiService } from "../DbApiService";
 import { ImdbSearchResult } from "./ImdbResult";
@@ -10,8 +10,6 @@ export class ImdbApiService implements DbApiService {
     async searchFirstFilm(filmName: string) {
         const url = this.urlGenerator.generateSearchFilmUrl(filmName);
         const result = await Fetcher.sendRequest<ImdbSearchResult>(url);
-
-        console.log(result);
 
         if (!result?.results?.length) return null;
 
