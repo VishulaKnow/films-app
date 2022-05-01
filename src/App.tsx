@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import "./App.css";
 import { ApiKey } from "./domain/filmDbApi/ApiKey";
 import { setApiKeyAction } from "./store/reducers/userState";
 import { LoginPage } from "./ui/pages/loginPage/LoginPage";
