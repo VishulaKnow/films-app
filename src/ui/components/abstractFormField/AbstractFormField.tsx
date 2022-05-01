@@ -1,5 +1,4 @@
 import React from "react";
-import { HtmlElementIdAttrValue } from "../../types";
 
 interface FormFieldProps {
     label: JSX.Element;
