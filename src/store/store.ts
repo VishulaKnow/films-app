@@ -1,6 +1,6 @@
 import { createStore, Store } from "redux";
-import { rootReducer } from "./reducers/rootReducer";
-import { UserState } from "./reducers/userState";
+import { rootReducer } from "./reducers/RootReducer";
+import { UserState } from "./reducers/UserState";
 
 //TODO: remove duplicate
 export interface AppStore {

@@ -1,6 +1,6 @@
 import { HtmlElementIdAttrValue } from "../../types";
 
-interface TextInputProps {
+export interface TextInputProps {
     name?: string;
     placeholder?: string;
     id?: HtmlElementIdAttrValue;
