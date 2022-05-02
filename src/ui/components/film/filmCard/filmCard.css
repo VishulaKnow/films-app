@@ -14,3 +14,17 @@
     display: flex;
     flex-direction: column;
 }
+
+.film-card-image {
+    max-height: 200px;
+}
+
+.film-title {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.film-subtitle {
+    font-size: 0.8em;
+    color: #444444;
+}

@@ -1,6 +1,6 @@
-import { Film } from "../../../film/Film";
 import { Fetcher } from "../../Fetcher";
 import { DbApiService } from "../DbApiService";
+import { ImdbFilmTransformator } from "./imdbItemToFilm";
 import { ImdbSearchResult } from "./ImdbResult";
 import { ImdbUrlGenerator } from "./ImdbUrlGenerator";
 
@@ -14,8 +14,6 @@ export class ImdbApiService implements DbApiService {
         if (!result?.results?.length) return null;
 
         const firstFilm = result.results[0];
-        return new Film({
-            title: firstFilm.title
-        });
+        return ImdbFilmTransformator.getFilmFromImdb(firstFilm);
     }
 }

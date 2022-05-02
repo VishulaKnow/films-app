@@ -5,7 +5,14 @@ import { SearchInput } from "../../components/searchInput/SearchInput";
 import "./searchPage.css";
 
 export const SearchPage: React.FC = () => {
-    const testFilms = [new Film({ title: "Film Title" })];
+    const testFilms = [
+        new Film({
+            title: "Inception",
+            subtitle: "tt1375666 (IMDB)",
+            imageUrl:
+                "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6800_AL_.jpg"
+        })
+    ];
 
     return (
         <div className="search-page-wrapper">
