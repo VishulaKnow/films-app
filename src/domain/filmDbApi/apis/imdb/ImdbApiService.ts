@@ -15,7 +15,7 @@ export class ImdbApiService implements DbApiService {
 
         const firstFilm = result.results[0];
         return new Film({
-            name: firstFilm.title
+            title: firstFilm.title
         });
     }
 }

@@ -1,0 +1,16 @@
+.film-card-content {
+    display: flex;
+}
+
+.film-card-item:not(:last-of-type) {
+    margin-right: 1em;
+}
+
+.film-card-info-block {
+    flex: 1;
+}
+
+.film-card-info-content {
+    display: flex;
+    flex-direction: column;
+}

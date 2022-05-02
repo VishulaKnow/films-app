@@ -1,13 +1,13 @@
 export type FilmName = string;
 
 interface FilmConfig {
-    name: FilmName;
+    title: FilmName;
 }
 
 export class Film {
     constructor(private config: FilmConfig) {}
 
-    get name() {
-        return this.config.name;
+    get title() {
+        return this.config.title;
     }
 }
