@@ -18,7 +18,7 @@ export const SearchInput: React.FC<SearchInputProps> = (props) => {
                     name={props.name}
                     onChange={(value) => {
                         setValue(value);
-                        props.onChange(value);
+                        props.onChange?.(value);
                     }}
                     placeholder={props.placeholder}
                 ></TextInput>

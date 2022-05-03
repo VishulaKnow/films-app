@@ -1,30 +1,35 @@
 import React from "react";
-import { Film } from "../../../domain/film/Film";
+import { useDispatch } from "react-redux";
+import { FilmTitle } from "../../../domain/film/Film";
+import { fetchFilmsListAction } from "../../../store/reducers/FilmsState";
+import { useTypedSelector } from "../../../store/UseTypedSelector";
 import { FilmList } from "../../components/film/filmList/FilmList";
 import { SearchInput } from "../../components/searchInput/SearchInput";
 import "./searchPage.css";
 
 export const SearchPage: React.FC = () => {
-    const testFilms = [
-        new Film({
-            id: "asdasd",
-            title: "Inception",
-            subtitle: "tt1375666 (IMDB)",
-            imageUrl:
-                "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6800_AL_.jpg"
-        })
-    ];
+    const { filmList } = useTypedSelector((store) => store.film);
+    const { user } = useTypedSelector((store) => store.user);
+    const dispatch = useDispatch();
+
+    const fetchFilms = (title: FilmTitle) => {
+        dispatch(fetchFilmsListAction(title, user) as any);
+    };
 
     return (
         <div className="search-page-wrapper">
             <div className="search-input-block">
                 <div className="search-input-wrapper">
-                    <SearchInput placeholder="Type film name..." id="film-search"></SearchInput>
+                    <SearchInput
+                        placeholder="Type film name..."
+                        id="film-search"
+                        execute={(value) => fetchFilms(value)}
+                    ></SearchInput>
                 </div>
             </div>
             <div className="search-result-block">
                 <div className="search-result-content">
-                    <FilmList films={testFilms}></FilmList>
+                    <FilmList films={filmList ?? []}></FilmList>
                 </div>
             </div>
         </div>

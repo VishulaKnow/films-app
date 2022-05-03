@@ -11,7 +11,7 @@ export const FilmList: React.FC<FilmListProps> = (props) => {
         <div className="film-list-wrapper">
             <div className="film-list-content">
                 {props.films.map((film) => (
-                    <FilmCard film={film}></FilmCard>
+                    <FilmCard film={film} key={film.id}></FilmCard>
                 ))}
             </div>
         </div>
