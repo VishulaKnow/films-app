@@ -1,12 +1,12 @@
 import { FileURL } from "../filmDbApi/types";
 
-export type FilmName = string;
+export type FilmTitle = string;
 
 export type FilmId = string | number;
 
 interface FilmConfig {
     id: FilmId;
-    title: FilmName;
+    title: FilmTitle;
     imageUrl: FileURL;
     subtitle?: string;
 }

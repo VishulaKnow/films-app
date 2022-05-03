@@ -1,4 +1,4 @@
-import { FilmName } from "../../../film/Film";
+import { FilmTitle } from "../../../film/Film";
 import { ApiKey } from "../../../types";
 
 export class ImdbUrlGenerator {
@@ -7,7 +7,7 @@ export class ImdbUrlGenerator {
 
     constructor(private apiKey: ApiKey) {}
 
-    generateSearchFilmUrl(filmName: FilmName) {
+    generateSearchFilmUrl(filmName: FilmTitle) {
         return `${this.HOST_NAME}/Search/${this.apiKey}/${filmName}`;
     }
 }
