@@ -7,7 +7,7 @@ export class ImdbUrlGenerator {
 
     constructor(private apiKey: ApiKey) {}
 
-    generateSearchFilmUrl(filmName: FilmTitle) {
-        return `${this.HOST_NAME}/Search/${this.apiKey}/${filmName}`;
+    generateSearchFilmUrl(filmTitle: FilmTitle) {
+        return `${this.HOST_NAME}/Search/${this.apiKey}/${filmTitle}`;
     }
 }

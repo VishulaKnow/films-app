@@ -7,8 +7,8 @@ import { ImdbUrlGenerator } from "./ImdbUrlGenerator";
 export class ImdbApiService implements DbApiService {
     constructor(private urlGenerator: ImdbUrlGenerator) {}
 
-    async searchFirstFilm(filmName: string) {
-        const url = this.urlGenerator.generateSearchFilmUrl(filmName);
+    async searchFirstFilm(filmTitle: string) {
+        const url = this.urlGenerator.generateSearchFilmUrl(filmTitle);
         const result = await Fetcher.sendRequest<ImdbSearchResult>(url);
 
         if (!result?.results?.length) return null;

@@ -5,12 +5,12 @@ export type ImdbFilmId = string;
 
 type ImdbRequestType = string;
 
-type ImdbFilmName = FilmTitle;
+type ImdbFilmTitle = FilmTitle;
 
 export interface ImdbFilmItem {
     id: ImdbFilmId;
     resultType: ImdbRequestType;
-    title: ImdbFilmName;
+    title: ImdbFilmTitle;
     image: FileURL;
 }
 
