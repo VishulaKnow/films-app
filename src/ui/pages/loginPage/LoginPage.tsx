@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ApiKey } from "../../../domain/filmDbApi/ApiKey";
+import { ApiKey } from "../../../domain/types";
+import { Button } from "../../components/button/Button";
 import { TextField } from "../../components/textField/TextField";
 import "./loginPage.css";
 
@@ -23,6 +24,9 @@ export const LoginPage: React.FC<LoginPageProps> = (props) => {
                         }}
                     >
                         <TextField title="Api key" id="api_key" onChange={(value) => setApiKey(value)}></TextField>
+                        <div className="form-button-block">
+                            <Button text="Login" iconName="user" execute={() => props.onSubmit(apiKey)}></Button>
+                        </div>
                     </form>
                 </div>
             </div>

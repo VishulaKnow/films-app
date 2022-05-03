@@ -7,6 +7,7 @@ import "./searchPage.css";
 export const SearchPage: React.FC = () => {
     const testFilms = [
         new Film({
+            id: "asdasd",
             title: "Inception",
             subtitle: "tt1375666 (IMDB)",
             imageUrl:

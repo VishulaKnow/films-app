@@ -2,7 +2,10 @@ import { FileURL } from "../filmDbApi/types";
 
 export type FilmName = string;
 
+export type FilmId = string | number;
+
 interface FilmConfig {
+    id: FilmId;
     title: FilmName;
     imageUrl: FileURL;
     subtitle?: string;
@@ -10,6 +13,10 @@ interface FilmConfig {
 
 export class Film {
     constructor(private config: FilmConfig) {}
+
+    get id() {
+        return this.config.id;
+    }
 
     get title() {
         return this.config.title;

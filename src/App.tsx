@@ -1,22 +1,30 @@
 import { useDispatch } from "react-redux";
-import { ApiKey } from "./domain/filmDbApi/ApiKey";
-import { setApiKeyAction } from "./store/reducers/userState";
+import { ApiKey } from "./domain/types";
+import { setUserAction } from "./store/reducers/UserState";
+import { useTypedSelector } from "./store/UseTypedSelector";
 import { LoginPage } from "./ui/pages/loginPage/LoginPage";
+import { SearchPage } from "./ui/pages/searchPage/SearchPage";
 
 function App() {
+    const { user } = useTypedSelector((store) => store.user);
+
     const dispatch = useDispatch();
 
     const setApiKey = (apiKey: ApiKey) => {
-        dispatch(setApiKeyAction(apiKey));
+        dispatch(setUserAction(apiKey));
     };
 
     return (
         <div className="App">
-            <LoginPage
-                onSubmit={(apiKey) => {
-                    setApiKey(apiKey);
-                }}
-            ></LoginPage>
+            {user ? (
+                <SearchPage></SearchPage>
+            ) : (
+                <LoginPage
+                    onSubmit={(apiKey) => {
+                        setApiKey(apiKey);
+                    }}
+                ></LoginPage>
+            )}
         </div>
     );
 }

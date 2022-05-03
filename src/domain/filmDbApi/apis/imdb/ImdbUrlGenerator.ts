@@ -1,5 +1,5 @@
 import { FilmName } from "../../../film/Film";
-import { ApiKey } from "../../ApiKey";
+import { ApiKey } from "../../../types";
 
 export class ImdbUrlGenerator {
     private readonly ruLanguageCode = "ru";

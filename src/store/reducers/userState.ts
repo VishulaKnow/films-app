@@ -1,17 +1,17 @@
-import { ApiKey } from "../../domain/filmDbApi/ApiKey";
 import { Action } from "redux";
+import { ApiKey } from "../../domain/types";
 
 export interface UserState {
-    apiKey: ApiKey;
+    user: ApiKey;
 }
 
 const initialState: UserState = {
-    apiKey: null
+    user: null
 };
 
-type UserActionType = "SET_API_KEY";
+type UserActionType = "SET_USER";
 
-const SET_API_KEY_ACTION_TYPE: UserActionType = "SET_API_KEY";
+const SET_API_KEY_ACTION_TYPE: UserActionType = "SET_USER";
 
 export interface UserAction extends Action<UserActionType> {
     payload: ApiKey;
@@ -19,13 +19,13 @@ export interface UserAction extends Action<UserActionType> {
 
 export function userReducer(state = initialState, action: UserAction): UserState {
     if (action.type === SET_API_KEY_ACTION_TYPE) {
-        return { apiKey: action.payload };
+        return { user: action.payload };
     }
 
     return state;
 }
 
-export function setApiKeyAction(payload: ApiKey): UserAction {
+export function setUserAction(payload: ApiKey): UserAction {
     return {
         type: SET_API_KEY_ACTION_TYPE,
         payload
