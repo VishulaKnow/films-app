@@ -8,11 +8,12 @@ import { SearchInput } from "../../components/searchInput/SearchInput";
 import "./searchPage.css";
 
 export const SearchPage: React.FC = () => {
-    const { filmList } = useTypedSelector((store) => store.film);
+    const { filmList } = useTypedSelector((store) => store.filmSearch);
     const { user } = useTypedSelector((store) => store.user);
     const dispatch = useDispatch();
 
     const fetchFilms = (title: FilmTitle) => {
+        //TODO: rm any
         dispatch(fetchFilmsListAction(title, user) as any);
     };
 

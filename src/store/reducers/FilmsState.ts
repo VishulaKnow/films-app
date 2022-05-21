@@ -6,11 +6,11 @@ import { ImdbUrlGenerator } from "../../domain/filmDbApi/apis/imdb/ImdbUrlGenera
 import { ApiService } from "../../domain/filmDbApi/ApiService";
 import { User } from "../../domain/user/User";
 
-interface FilmsState {
+interface FilmsSearchState {
     filmList: Film[];
 }
 
-const initialState: FilmsState = {
+const initialState: FilmsSearchState = {
     filmList: null
 };
 
@@ -23,7 +23,7 @@ interface FetchFilmsAction extends Action<FilmsActionType> {
 
 type FilmsAction = FetchFilmsAction;
 
-export function filmsReducer(state = initialState, action: FilmsAction): FilmsState {
+export function filmsSearchReducer(state = initialState, action: FilmsAction): FilmsSearchState {
     if (action.type === "FETCH_LIST") {
         return { ...state, filmList: action.payload };
     }

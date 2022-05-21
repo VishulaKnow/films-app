@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import { filmsReducer } from "./FilmsState";
+import { filmsSearchReducer } from "./FilmsState";
 import { userReducer } from "./UserState";
 
 export const rootReducer = combineReducers({
     user: userReducer,
-    film: filmsReducer
+    filmSearch: filmsSearchReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
