@@ -4,7 +4,7 @@ import { DbApiService } from "./apis/DbApiService";
 export class ApiService {
     constructor(private dbService: DbApiService) {}
 
-    searchFilm(filmTitle: FilmTitle) {
-        return this.dbService.searchFirstFilm(filmTitle);
+    searchFilms(filmTitle: FilmTitle) {
+        return this.dbService.searchFilmsByTitle(filmTitle);
     }
 }

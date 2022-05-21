@@ -7,13 +7,12 @@ import { ImdbUrlGenerator } from "./ImdbUrlGenerator";
 export class ImdbApiService implements DbApiService {
     constructor(private urlGenerator: ImdbUrlGenerator) {}
 
-    async searchFirstFilm(filmTitle: string) {
+    async searchFilmsByTitle(filmTitle: string) {
         const url = this.urlGenerator.generateSearchFilmUrl(filmTitle);
         const result = await Fetcher.sendRequest<ImdbSearchResult>(url);
 
-        if (!result?.results?.length) return null;
+        if (!result?.results?.length) return [];
 
-        const firstFilm = result.results[0];
-        return ImdbFilmTransformator.getFilmFromImdb(firstFilm);
+        return result.results.map((r) => ImdbFilmTransformator.getFilmFromImdb(r));
     }
 }

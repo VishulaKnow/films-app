@@ -38,8 +38,8 @@ export function fetchFilmsListAction(title: FilmTitle, user: User) {
         const dbService = new ImdbApiService(new ImdbUrlGenerator(user.apiKey));
         const apiService = new ApiService(dbService);
 
-        // add error catch
-        const film = await apiService.searchFilm(title);
-        dispatch({ type: "FETCH_LIST", payload: [film] });
+        //TODO: add error catch
+        const films = await apiService.searchFilms(title);
+        dispatch({ type: "FETCH_LIST", payload: films });
     };
 }
