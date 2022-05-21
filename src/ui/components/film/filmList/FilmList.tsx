@@ -10,20 +10,10 @@ export const FilmList: React.FC<FilmListProps> = (props) => {
     return (
         <div className="film-list-wrapper">
             <div className="film-list-content">
-                {props.films.length ? (
-                    props.films.map((film) => <FilmCard film={film} key={film.id}></FilmCard>)
-                ) : (
-                    <NoFilmsMessage></NoFilmsMessage>
-                )}
+                {props.films.map((film) => (
+                    <FilmCard film={film} key={film.id}></FilmCard>
+                ))}
             </div>
-        </div>
-    );
-};
-
-export const NoFilmsMessage: React.FC = () => {
-    return (
-        <div className="film-list-empty">
-            <h3>There are not films!</h3>
         </div>
     );
 };
