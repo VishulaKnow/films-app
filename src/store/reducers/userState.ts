@@ -1,13 +1,14 @@
 import { Action } from "redux";
 import { ApiKey } from "../../domain/types";
 import { User } from "../../domain/user/User";
+import { ApiKeyItem } from "../envStorage/Items";
 
 interface UserState {
     user: User;
 }
 
 const initialState: UserState = {
-    user: null
+    user: ApiKeyItem.getValue() ? new User(ApiKeyItem.getValue()) : null
 };
 
 type UserActionType = "SET_USER" | "CLEAR_USER";
