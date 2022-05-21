@@ -10,6 +10,10 @@ interface SearchInputProps extends TextInputProps {
 export const SearchInput: React.FC<SearchInputProps> = (props) => {
     const [value, setValue] = useState("");
 
+    const execute = () => {
+        if (value) props.execute(value);
+    };
+
     return (
         <div className="search-input">
             <div className="search-input-text-input-wrap">
@@ -21,15 +25,13 @@ export const SearchInput: React.FC<SearchInputProps> = (props) => {
                         props.onChange?.(value);
                     }}
                     placeholder={props.placeholder}
+                    keyboardActions={{
+                        primary: execute
+                    }}
                 ></TextInput>
             </div>
             <div className="search-input-button-wrap">
-                <Button
-                    iconName="search"
-                    execute={() => {
-                        if (value) props.execute(value);
-                    }}
-                ></Button>
+                <Button iconName="search" execute={execute}></Button>
             </div>
         </div>
     );

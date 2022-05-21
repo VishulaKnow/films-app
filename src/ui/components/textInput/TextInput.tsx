@@ -1,3 +1,4 @@
+import { KeyboardActionsOnElement, setKeyboardActions } from "../../services/KeyboardActions";
 import { HtmlElementIdAttrValue } from "../../types";
 
 export interface TextInputProps {
@@ -5,6 +6,7 @@ export interface TextInputProps {
     placeholder?: string;
     id?: HtmlElementIdAttrValue;
     onChange?(value: string): void;
+    keyboardActions?: KeyboardActionsOnElement;
 }
 
 export const TextInput: React.FC<TextInputProps> = (props) => {
@@ -15,6 +17,7 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
             id={props.id || ""}
             name={props.name}
             onChange={(e) => props.onChange?.(e.target.value)}
+            onKeyDown={props.keyboardActions ? (e) => setKeyboardActions(e, props.keyboardActions) : void 0}
         />
     );
 };
