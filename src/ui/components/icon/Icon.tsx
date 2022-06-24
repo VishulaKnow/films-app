@@ -4,7 +4,7 @@ import { registerIcons } from "./IconLib";
 
 registerIcons();
 
-export type IconName = "search" | "user";
+export type IconName = "search" | "user" | "sign-out";
 
 interface IconProps {
     name: IconName;

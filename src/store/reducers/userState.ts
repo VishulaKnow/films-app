@@ -41,3 +41,9 @@ export function setUserAction(payload: ApiKey): SetUserAction {
         payload
     };
 }
+
+export function clearUserAction(): ClearUserAction {
+    return {
+        type: "CLEAR_USER"
+    };
+}
