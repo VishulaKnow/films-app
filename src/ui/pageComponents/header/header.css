@@ -1,0 +1,11 @@
+.header-content-wrap {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
