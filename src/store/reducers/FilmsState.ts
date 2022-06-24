@@ -1,13 +1,13 @@
 import { Dispatch } from "react";
 import { Action } from "redux";
-import { Film, FilmTitle } from "../../domain/film/Film";
+import { FilmPreview, FilmTitle } from "../../domain/film/Film";
 import { ImdbApiService } from "../../domain/filmDbApi/apis/imdb/ImdbApiService";
 import { ImdbUrlGenerator } from "../../domain/filmDbApi/apis/imdb/ImdbUrlGenerator";
 import { ApiService } from "../../domain/filmDbApi/ApiService";
 import { User } from "../../domain/user/User";
 
 interface FilmsSearchState {
-    filmList: Film[] | null;
+    filmList: FilmPreview[] | null;
     fetchInProgress: boolean;
 }
 
@@ -20,7 +20,7 @@ type FilmsActionType = "FETCH_LIST" | "START_FETCH" | "END_FETCH";
 
 interface FetchFilmsAction extends Action<FilmsActionType> {
     type: "FETCH_LIST";
-    payload: Film[];
+    payload: FilmPreview[];
 }
 
 interface StartFetchAction extends Action<FilmsActionType> {

@@ -1,9 +1,9 @@
-import { Film } from "../../../film/Film";
+import { FilmPreview } from "../../../film/Film";
 import { ImdbFilmId, ImdbFilmItem } from "./ImdbResult";
 
 export const ImdbFilmTransformator = new (class {
-    getFilmFromImdb(imdbFilmResult: ImdbFilmItem): Film {
-        return new Film({
+    getFilmFromImdb(imdbFilmResult: ImdbFilmItem): FilmPreview {
+        return new FilmPreview({
             id: imdbFilmResult.id,
             title: imdbFilmResult.title,
             imageUrl: imdbFilmResult.image,

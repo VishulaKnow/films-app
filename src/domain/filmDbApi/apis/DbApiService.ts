@@ -1,5 +1,5 @@
-import { Film, FilmTitle } from "../../film/Film";
+import { FilmPreview, FilmTitle } from "../../film/Film";
 
 export interface DbApiService {
-    searchFilmsByTitle(filmTitle: FilmTitle): Promise<Film[]>;
+    searchFilmsByTitle(filmTitle: FilmTitle): Promise<FilmPreview[]>;
 }

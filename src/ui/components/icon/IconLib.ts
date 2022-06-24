@@ -1,6 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
+import * as fa from "@fortawesome/free-solid-svg-icons";
 
 export function registerIcons() {
-    library.add(faSearch, faUser);
+    const allIcons: any[] = [];
+    const obj: any = { ...fa };
+    Object.keys(obj).forEach((faProp) => {
+        if (faProp.startsWith("fa")) {
+            allIcons.push(obj[faProp]);
+        }
+    });
+    library.add(...allIcons);
 }

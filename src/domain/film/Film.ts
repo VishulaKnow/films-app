@@ -11,7 +11,7 @@ interface FilmConfig {
     subtitle?: string;
 }
 
-export class Film {
+export class FilmPreview {
     constructor(private config: FilmConfig) {}
 
     get id() {

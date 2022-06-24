@@ -1,8 +1,8 @@
-import { Film } from "../../../../domain/film/Film";
+import { FilmPreview } from "../../../../domain/film/Film";
 import "./filmCard.css";
 
 interface FilmCardProps {
-    film: Film;
+    film: FilmPreview;
 }
 
 export const FilmCard: React.FC<FilmCardProps> = (props) => {

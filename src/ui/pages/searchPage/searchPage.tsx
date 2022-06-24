@@ -47,7 +47,7 @@ export const SearchPage: React.FC = () => {
 export const NoFilmsMessage: React.FC = () => {
     return (
         <div className="film-list-empty">
-            <h3>There are not films!</h3>
+            <h3>There are no films!</h3>
         </div>
     );
 };
