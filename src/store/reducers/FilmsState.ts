@@ -7,7 +7,7 @@ import { ApiService } from "../../domain/filmDbApi/ApiService";
 import { User } from "../../domain/user/User";
 
 interface FilmsSearchState {
-    filmList: Film[];
+    filmList: Film[] | null;
     fetchInProgress: boolean;
 }
 
@@ -47,7 +47,7 @@ export function filmsSearchReducer(state = initialState, action: FilmsAction): F
     return state;
 }
 
-export function fetchFilmsListAction(title: FilmTitle, user: User) {
+export function fetchFilmsListAction(title: FilmTitle, user: User | null) {
     if (!user) throw new Error("User not found!");
 
     return async (dispatch: Dispatch<FilmsAction>) => {

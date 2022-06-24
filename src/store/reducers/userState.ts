@@ -4,7 +4,7 @@ import { User } from "../../domain/user/User";
 import { ApiKeyItem } from "../envStorage/Items";
 
 interface UserState {
-    user: User;
+    user: User | null;
 }
 
 const initialState: UserState = {

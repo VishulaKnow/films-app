@@ -17,7 +17,13 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
             id={props.id || ""}
             name={props.name}
             onChange={(e) => props.onChange?.(e.target.value)}
-            onKeyDown={props.keyboardActions ? (e) => setKeyboardActions(e, props.keyboardActions) : void 0}
+            onKeyDown={
+                props.keyboardActions
+                    ? (e) => {
+                          if (props.keyboardActions) setKeyboardActions(e, props.keyboardActions);
+                      }
+                    : void 0
+            }
         />
     );
 };

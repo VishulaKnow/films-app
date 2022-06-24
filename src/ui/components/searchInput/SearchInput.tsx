@@ -11,7 +11,7 @@ export const SearchInput: React.FC<SearchInputProps> = (props) => {
     const [value, setValue] = useState("");
 
     const execute = () => {
-        if (value) props.execute(value);
+        if (value) props.execute?.(value);
     };
 
     return (
