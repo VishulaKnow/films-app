@@ -1,7 +1,8 @@
+import { FilmId } from "../../../film/FilmPreview";
 import { Fetcher } from "../../Fetcher";
 import { DbApiService } from "../DbApiService";
 import { ImdbFilmTransformator } from "./imdbItemToFilm";
-import { ImdbSearchResult } from "./ImdbResult";
+import { ImdbFilm, ImdbSearchResult } from "./ImdbResult";
 import { ImdbUrlGenerator } from "./ImdbUrlGenerator";
 
 export class ImdbApiService implements DbApiService {
@@ -13,6 +14,15 @@ export class ImdbApiService implements DbApiService {
 
         if (!result?.results?.length) return [];
 
-        return result.results.map((r) => ImdbFilmTransformator.getFilmFromImdb(r));
+        return result.results.map((r) => ImdbFilmTransformator.getFilmPreviewFromImdb(r));
+    }
+
+    async fetchFilm(id: FilmId) {
+        const url = this.urlGenerator.generateFetchFilmUrl(id);
+        const result = await Fetcher.sendRequest<ImdbFilm>(url);
+
+        if (!result) return null;
+
+        return ImdbFilmTransformator.getFilmFromImdbFilm(result);
     }
 }

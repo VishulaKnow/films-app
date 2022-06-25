@@ -1,4 +1,4 @@
-import { FilmTitle } from "../../../film/FilmPreview";
+import { FilmId, FilmTitle } from "../../../film/FilmPreview";
 import { ApiKey } from "../../../types";
 
 export class ImdbUrlGenerator {
@@ -9,5 +9,9 @@ export class ImdbUrlGenerator {
 
     generateSearchFilmUrl(filmTitle: FilmTitle) {
         return `${this.HOST_NAME}/Search/${this.apiKey}/${filmTitle}`;
+    }
+
+    generateFetchFilmUrl(filmId: FilmId) {
+        return `${this.HOST_NAME}/Title/${this.apiKey}/${filmId}`;
     }
 }

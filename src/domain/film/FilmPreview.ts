@@ -1,10 +1,14 @@
 import { FileURL } from "../filmDbApi/types";
 
 export type FilmTitle = string;
+export type FilmFullTitle = string;
+export type FilmReleaseYear = string;
+export type FilmPlot = string;
+export type FilmDirectors = string;
 
 export type FilmId = string | number;
 
-interface FilmConfig {
+interface FilmPreviewConfig {
     id: FilmId;
     title: FilmTitle;
     imageUrl: FileURL;
@@ -12,7 +16,7 @@ interface FilmConfig {
 }
 
 export class FilmPreview {
-    constructor(private config: FilmConfig) {}
+    constructor(private config: FilmPreviewConfig) {}
 
     get id() {
         return this.config.id;
