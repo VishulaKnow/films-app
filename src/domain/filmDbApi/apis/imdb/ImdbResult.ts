@@ -1,4 +1,4 @@
-import { FilmTitle } from "../../../film/Film";
+import { FilmTitle } from "../../../film/FilmPreview";
 import { FileURL } from "../../types";
 
 export type ImdbFilmId = string;

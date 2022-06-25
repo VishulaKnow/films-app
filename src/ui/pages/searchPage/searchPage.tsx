@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { FilmTitle } from "../../../domain/film/Film";
+import { FilmTitle } from "../../../domain/film/FilmPreview";
 import { fetchFilmsListAction } from "../../../store/reducers/FilmsState";
 import { useTypedSelector } from "../../../store/UseTypedSelector";
 import { FilmList } from "../../components/film/filmList/FilmList";

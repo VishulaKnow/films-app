@@ -1,4 +1,4 @@
-import { FilmPreview } from "../../../../domain/film/Film";
+import { FilmPreview } from "../../../../domain/film/FilmPreview";
 import { FilmCard } from "../filmCard/FilmCard";
 import "./filmList.css";
 

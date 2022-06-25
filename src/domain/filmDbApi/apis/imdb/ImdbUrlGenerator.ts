@@ -1,4 +1,4 @@
-import { FilmTitle } from "../../../film/Film";
+import { FilmTitle } from "../../../film/FilmPreview";
 import { ApiKey } from "../../../types";
 
 export class ImdbUrlGenerator {

@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 import { Action } from "redux";
-import { FilmPreview, FilmTitle } from "../../domain/film/Film";
+import { FilmPreview, FilmTitle } from "../../domain/film/FilmPreview";
 import { ImdbApiService } from "../../domain/filmDbApi/apis/imdb/ImdbApiService";
 import { ImdbUrlGenerator } from "../../domain/filmDbApi/apis/imdb/ImdbUrlGenerator";
 import { ApiService } from "../../domain/filmDbApi/ApiService";

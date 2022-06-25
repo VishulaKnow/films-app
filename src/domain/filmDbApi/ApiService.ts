@@ -1,4 +1,4 @@
-import { FilmTitle } from "../film/Film";
+import { FilmTitle } from "../film/FilmPreview";
 import { DbApiService } from "./apis/DbApiService";
 
 export class ApiService {
