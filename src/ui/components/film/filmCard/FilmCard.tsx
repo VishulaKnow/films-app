@@ -1,4 +1,5 @@
 import { FilmPreview } from "../../../../domain/film/Film";
+import { Link } from "../../link/Link";
 import "./filmCard.css";
 
 interface FilmCardProps {
@@ -17,7 +18,9 @@ export const FilmCard: React.FC<FilmCardProps> = (props) => {
                 <div className="film-card-item film-card-info-block">
                     <div className="film-card-info-content">
                         <div className="film-title-block">
-                            <h2 className="film-title">{film.title}</h2>
+                            <h2 className="film-title">
+                                <Link text={film.title} execute={() => alert(12)}></Link>
+                            </h2>
                             <span className="film-subtitle">{film.subtitle}</span>
                         </div>
                     </div>
