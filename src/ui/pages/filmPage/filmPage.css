@@ -1,0 +1,21 @@
+.film-page-content {
+    display: flex;
+    justify-content: center;
+}
+
+.film-page-item {
+    max-width: 800px;
+}
+
+.film-page-item-content {
+    display: flex;
+}
+
+.film-page-item-image {
+    height: 500px;
+}
+
+.film-page-item-title {
+    font-size: 3em;
+    margin: 0;
+}
