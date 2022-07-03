@@ -51,6 +51,9 @@ export function filmsSearchReducer(state = initialState, action: FilmsAction): F
     if (action.type === "END_FETCH") {
         return { ...state, fetchInProgress: false };
     }
+    if (action.type === "FETCH") {
+        return { ...state, currentFilm: action.payload };
+    }
 
     return state;
 }
