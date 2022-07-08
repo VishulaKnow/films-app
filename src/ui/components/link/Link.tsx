@@ -1,22 +1,37 @@
 import { Href } from "../../types";
+import { Link as ReactRounterDomLink } from "react-router-dom";
 import "./link.css";
 
 interface LinkProps {
     text: string;
+    external?: boolean;
     href?: Href;
     execute?: () => void;
     inNewTab?: boolean;
 }
 
 export const Link: React.FC<LinkProps> = (props) => {
+    if (props.external) {
+        return (
+            <a
+                className="link"
+                href={props.href}
+                target={props.inNewTab ? "_blank" : "_self"}
+                onClick={props.execute ? () => props.execute?.() : void 0}
+            >
+                {props.text}
+            </a>
+        );
+    }
     return (
-        <a
+        <ReactRounterDomLink
             className="link"
-            href={props.href}
+            to={{
+                pathname: props.href
+            }}
             target={props.inNewTab ? "_blank" : "_self"}
-            onClick={props.execute ? () => props.execute?.() : void 0}
         >
             {props.text}
-        </a>
+        </ReactRounterDomLink>
     );
 };
