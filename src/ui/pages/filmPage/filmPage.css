@@ -1,6 +1,7 @@
 .film-page-content {
     display: flex;
     justify-content: center;
+    padding-top: 1rem;
 }
 
 .film-page-item {
@@ -18,4 +19,8 @@
 .film-page-item-title {
     font-size: 3em;
     margin: 0;
+}
+
+.film-page-item-image-block {
+    margin-right: 1rem;
 }

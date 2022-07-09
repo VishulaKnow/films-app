@@ -19,7 +19,7 @@ export const FilmCard: React.FC<FilmCardProps> = (props) => {
                     <div className="film-card-info-content">
                         <div className="film-title-block">
                             <h2 className="film-title">
-                                <Link text={film.title} execute={() => alert(12)}></Link>
+                                <Link text={film.title} href={`/film/${film.id}`}></Link>
                             </h2>
                             <span className="film-subtitle">{film.subtitle}</span>
                         </div>

@@ -14,17 +14,13 @@ export const FilmPage: React.FC = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch;
-        fetchFilmAction;
-        user;
-        // dispatch(fetchFilmAction(filmId, user) as any);
+        dispatch(fetchFilmAction(filmId, user) as any);
     }, []);
 
     const film = useTypedSelector((state) => state.filmSearch.currentFilm);
 
     return (
         <div className="film-page-wrap">
-            <h1>ID: {filmId}</h1>
             {film ? (
                 <div className="film-page-content">
                     <div className="film-page-item">
@@ -45,6 +41,7 @@ export const FilmPage: React.FC = () => {
                                 <div className="film-page-item-plot-block">
                                     <p className="film-page-item-plot">{film.plot}</p>
                                 </div>
+                                <div className="delete-me">({film.id})</div>
                             </div>
                         </div>
                     </div>
