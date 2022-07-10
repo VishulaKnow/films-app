@@ -19,8 +19,10 @@ export const Header: React.FC = () => {
             <div className="header-content-wrap">
                 <div className="header-content">
                     <div className="app-name">
+                        <Link text="Films app" href="/search"></Link>
                         <Link
-                            text="Films app"
+                            text="GitHub"
+                            className="github-link"
                             inNewTab={true}
                             href="https://github.com/VishulaKnow/films-app"
                             external={true}
