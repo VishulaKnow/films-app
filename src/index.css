@@ -13,3 +13,8 @@ code {
 body * {
     box-sizing: border-box;
 }
+
+:root {
+    --base-horizontal-padding: 0.3rem;
+    --base-vertical-padding: 0.2rem;
+}

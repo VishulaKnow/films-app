@@ -1,5 +1,6 @@
 import { KeyboardActionsOnElement, setKeyboardActions } from "../../services/KeyboardActions";
 import { HtmlElementIdAttrValue } from "../../types";
+import "./textInput.css";
 
 export interface TextInputProps {
     name?: string;
@@ -13,6 +14,7 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
     return (
         <input
             type="text"
+            className="text-input"
             placeholder={props.placeholder || ""}
             id={props.id || ""}
             name={props.name}

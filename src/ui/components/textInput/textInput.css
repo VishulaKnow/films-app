@@ -1,7 +1,3 @@
-.button {
+.text-input {
     padding: var(--base-vertical-padding) var(--base-horizontal-padding);
-}
-
-.button-icon + .button-text {
-    margin-left: 0.3em;
 }
