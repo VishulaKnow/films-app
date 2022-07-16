@@ -2,8 +2,7 @@ import { Dispatch } from "react";
 import { Action } from "redux";
 import { Film } from "../../domain/film/Film";
 import { FilmId, FilmPreview, FilmTitle } from "../../domain/film/FilmPreview";
-import { ImdbApiService } from "../../domain/filmDbApi/apis/imdb/ImdbApiService";
-import { ImdbUrlGenerator } from "../../domain/filmDbApi/apis/imdb/ImdbUrlGenerator";
+import { FakeApiService } from "../../domain/filmDbApi/apis/fake/FakeApiService";
 import { ApiService } from "../../domain/filmDbApi/ApiService";
 import { User } from "../../domain/user/User";
 
@@ -62,8 +61,7 @@ export function fetchFilmsListAction(title: FilmTitle, user: User | null) {
     if (!user) throw new Error("User not found!");
 
     return async (dispatch: Dispatch<FilmsAction>) => {
-        const dbService = new ImdbApiService(new ImdbUrlGenerator(user.apiKey));
-        const apiService = new ApiService(dbService);
+        const apiService = getApiService(user);
 
         dispatch({ type: "START_FETCH" });
 
@@ -78,8 +76,7 @@ export function fetchFilmAction(id: FilmId, user: User | null) {
     if (!user) throw new Error("User not found!");
 
     return async (dispatch: Dispatch<FilmsAction>) => {
-        const dbService = new ImdbApiService(new ImdbUrlGenerator(user.apiKey));
-        const apiService = new ApiService(dbService);
+        const apiService = getApiService(user);
 
         dispatch({ type: "START_FETCH" });
 
@@ -87,4 +84,11 @@ export function fetchFilmAction(id: FilmId, user: User | null) {
         dispatch({ type: "END_FETCH" });
         dispatch({ type: "FETCH", payload: film });
     };
+}
+
+function getApiService(user: User) {
+    user;
+    // const dbService = new ImdbApiService(new ImdbUrlGenerator(user.apiKey));
+    const dbService = new FakeApiService();
+    return new ApiService(dbService);
 }
