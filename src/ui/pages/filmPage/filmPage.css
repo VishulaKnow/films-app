@@ -24,3 +24,11 @@
 .film-page-item-image-block {
     margin-right: 1rem;
 }
+
+.film-page-item-reviews-block-header {
+    font-size: 1.5em;
+}
+
+.film-page-item-review-item:not(:last-of-type) {
+    margin-bottom: 2em;
+}

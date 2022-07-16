@@ -27,7 +27,7 @@ export class ImdbApiService implements DbApiService {
         return ImdbFilmTransformator.getFilmFromImdbFilm(result);
     }
 
-    fetchReviews(): Promise<FilmReview | null> {
+    fetchReviews(): Promise<FilmReview[]> {
         throw new Error("Method not implemented.");
     }
 }

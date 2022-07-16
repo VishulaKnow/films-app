@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchFilmAction } from "../../../store/reducers/FilmsState";
 import { useTypedSelector } from "../../../store/UseTypedSelector";
+import { FilmReviewView } from "../../components/film/review/FilmReview";
 import { LoadingSpinner } from "../../components/loadingSpinner/LoadingSpinner";
 import "./filmPage.css";
 
@@ -17,11 +18,13 @@ export const FilmPage: React.FC = () => {
         dispatch(fetchFilmAction(filmId, user) as any);
     }, []);
 
-    const film = useTypedSelector((state) => state.filmSearch.currentFilm);
+    const pageInfo = useTypedSelector((state) => state.filmSearch.currentFilm);
+    const film = pageInfo?.film;
+    const reviews = pageInfo?.reviews;
 
     return (
         <div className="film-page-wrap">
-            {film ? (
+            {film && reviews ? (
                 <div className="film-page-content">
                     <div className="film-page-item">
                         <div className="film-page-item-content">
@@ -41,7 +44,16 @@ export const FilmPage: React.FC = () => {
                                 <div className="film-page-item-plot-block">
                                     <p className="film-page-item-plot">{film.plot}</p>
                                 </div>
-                                <div className="delete-me">({film.id})</div>
+                                <div className="film-page-item-reviews-block">
+                                    <h3 className="film-page-item-reviews-block-header">Reviews:</h3>
+                                    {reviews.map((review) => {
+                                        return (
+                                            <div className="film-page-item-review-item">
+                                                <FilmReviewView review={review} key={review.author}></FilmReviewView>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
                     </div>

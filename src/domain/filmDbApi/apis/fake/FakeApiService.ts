@@ -35,17 +35,24 @@ export class FakeApiService implements DbApiService {
         });
     }
 
-    fetchReviews(): Promise<FilmReview | null> {
+    fetchReviews(): Promise<FilmReview[]> {
         return new Promise((resolve) => {
-            resolve(
+            resolve([
                 new FilmReview({
                     publisher: "Boxoffice Magazine",
                     author: "Pete Hammond",
                     rate: 100,
                     content:
                         "In terms of sheer originality, ambition and achievement, Inception is the movie of the summer, the movie of the year and the movie of our dreams."
+                }),
+                new FilmReview({
+                    publisher: "Variety",
+                    author: "Justin Chang",
+                    rate: 56,
+                    content:
+                        "If Inception is a metaphysical puzzle, it's also a metaphorical one: It's hard not to draw connections between Cobb's dream-weaving and Nolan's filmmaking -- an activity devoted to constructing a simulacrum of reality, intended to seduce us, mess with our heads and leave a lasting impression. Mission accomplished."
                 })
-            );
+            ]);
         });
     }
 }

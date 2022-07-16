@@ -1,0 +1,26 @@
+.film-review-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.film-review-block-header {
+    margin-bottom: 1em;
+}
+
+.film-review-block-main-content {
+    display: flex;
+}
+
+.rate-block {
+    margin-right: 1em;
+}
+
+.rate {
+    font-size: 3em;
+    background-color: red;
+    color: white;
+}
+
+.review-author {
+    margin: 0;
+}

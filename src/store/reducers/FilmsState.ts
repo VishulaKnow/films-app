@@ -4,10 +4,16 @@ import { Film } from "../../domain/film/Film";
 import { FilmId, FilmPreview, FilmTitle } from "../../domain/film/FilmPreview";
 import { FakeApiService } from "../../domain/filmDbApi/apis/fake/FakeApiService";
 import { ApiService } from "../../domain/filmDbApi/ApiService";
+import { FilmReview } from "../../domain/review/FilmReview";
 import { User } from "../../domain/user/User";
 
+interface CurrentFilmInfo {
+    film: Film;
+    reviews: FilmReview[];
+}
+
 interface FilmsSearchState {
-    currentFilm: Film | undefined | null;
+    currentFilm: CurrentFilmInfo | undefined | null;
     filmList: FilmPreview[] | null;
     fetchInProgress: boolean;
 }
@@ -27,7 +33,7 @@ interface FetchFilmsAction extends Action<FilmsActionType> {
 
 interface FetchFilmAction extends Action<FilmsActionType> {
     type: "FETCH";
-    payload: Film | null;
+    payload: CurrentFilmInfo | null;
 }
 
 interface StartFetchAction extends Action<FilmsActionType> {
@@ -80,9 +86,21 @@ export function fetchFilmAction(id: FilmId, user: User | null) {
 
         dispatch({ type: "START_FETCH" });
 
+        const end = (result: CurrentFilmInfo | null) => {
+            dispatch({ type: "END_FETCH" });
+            dispatch({ type: "FETCH", payload: result });
+        };
+
         const film = await apiService.fetchFilm(id);
-        dispatch({ type: "END_FETCH" });
-        dispatch({ type: "FETCH", payload: film });
+
+        if (!film) {
+            end(null);
+            return;
+        }
+
+        const reviews = await apiService.fetchReviews(id);
+
+        end({ film, reviews });
     };
 }
 
