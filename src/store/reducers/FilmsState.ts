@@ -24,7 +24,7 @@ const initialState: FilmsSearchState = {
     fetchInProgress: false
 };
 
-type FilmsActionType = "FETCH_LIST" | "FETCH" | "START_FETCH" | "END_FETCH";
+type FilmsActionType = "FETCH_LIST" | "FETCH" | "START_FETCH" | "END_FETCH" | "CLEAR_LIST";
 
 interface FetchFilmsAction extends Action<FilmsActionType> {
     type: "FETCH_LIST";
@@ -44,7 +44,11 @@ interface EndFetchAction extends Action<FilmsActionType> {
     type: "END_FETCH";
 }
 
-type FilmsAction = FetchFilmsAction | FetchFilmAction | StartFetchAction | EndFetchAction;
+interface ClearListAction extends Action<FilmsActionType> {
+    type: "CLEAR_LIST";
+}
+
+type FilmsAction = FetchFilmsAction | FetchFilmAction | StartFetchAction | EndFetchAction | ClearListAction;
 
 export function filmsSearchReducer(state = initialState, action: FilmsAction): FilmsSearchState {
     if (action.type === "FETCH_LIST") {
@@ -58,6 +62,9 @@ export function filmsSearchReducer(state = initialState, action: FilmsAction): F
     }
     if (action.type === "FETCH") {
         return { ...state, currentFilm: action.payload };
+    }
+    if (action.type === "CLEAR_LIST") {
+        return { ...state, filmList: [] };
     }
 
     return state;
@@ -109,4 +116,10 @@ function getApiService(user: User) {
     // const dbService = new ImdbApiService(new ImdbUrlGenerator(user.apiKey));
     const dbService = new FakeApiService();
     return new ApiService(dbService);
+}
+
+export function clearSearchResultAction(): ClearListAction {
+    return {
+        type: "CLEAR_LIST"
+    };
 }

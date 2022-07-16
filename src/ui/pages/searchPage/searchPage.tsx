@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { FilmTitle } from "../../../domain/film/FilmPreview";
-import { fetchFilmsListAction } from "../../../store/reducers/FilmsState";
+import { clearSearchResultAction, fetchFilmsListAction } from "../../../store/reducers/FilmsState";
 import { useTypedSelector } from "../../../store/UseTypedSelector";
 import { FilmList } from "../../components/film/filmList/FilmList";
 import { LoadingSpinner } from "../../components/loadingSpinner/LoadingSpinner";
@@ -17,6 +17,12 @@ export const SearchPage: React.FC = () => {
         //TODO: rm any
         dispatch(fetchFilmsListAction(title, user) as any);
     };
+
+    useEffect(() => {
+        return () => {
+            dispatch(clearSearchResultAction());
+        };
+    }, []);
 
     return (
         <div className="search-page-wrapper">
