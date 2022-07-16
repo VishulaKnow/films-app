@@ -11,4 +11,8 @@ export class ApiService {
     fetchFilm(id: FilmId) {
         return this.dbService.fetchFilm(id);
     }
+
+    fetchReviews(id: FilmId) {
+        return this.dbService.fetchReviews(id);
+    }
 }

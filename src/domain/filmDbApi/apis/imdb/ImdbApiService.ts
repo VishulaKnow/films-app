@@ -1,4 +1,5 @@
 import { FilmId } from "../../../film/FilmPreview";
+import { FilmReview } from "../../../review/FilmReview";
 import { Fetcher } from "../../Fetcher";
 import { DbApiService } from "../DbApiService";
 import { ImdbFilmTransformator } from "./imdbItemToFilm";
@@ -24,5 +25,9 @@ export class ImdbApiService implements DbApiService {
         if (!result) return null;
 
         return ImdbFilmTransformator.getFilmFromImdbFilm(result);
+    }
+
+    fetchReviews(): Promise<FilmReview | null> {
+        throw new Error("Method not implemented.");
     }
 }

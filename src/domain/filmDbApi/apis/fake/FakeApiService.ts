@@ -1,5 +1,6 @@
 import { Film } from "../../../film/Film";
 import { FilmPreview } from "../../../film/FilmPreview";
+import { FilmReview } from "../../../review/FilmReview";
 import { DbApiService } from "../DbApiService";
 
 export class FakeApiService implements DbApiService {
@@ -29,6 +30,20 @@ export class FakeApiService implements DbApiService {
                     releaseYear: "2010",
                     imageUrl:
                         "https://imdb-api.com/images/original/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6800_AL_.jpg"
+                })
+            );
+        });
+    }
+
+    fetchReviews(): Promise<FilmReview | null> {
+        return new Promise((resolve) => {
+            resolve(
+                new FilmReview({
+                    publisher: "Boxoffice Magazine",
+                    author: "Pete Hammond",
+                    rate: 100,
+                    content:
+                        "In terms of sheer originality, ambition and achievement, Inception is the movie of the summer, the movie of the year and the movie of our dreams."
                 })
             );
         });
