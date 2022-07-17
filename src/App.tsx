@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { FilmPage } from "./ui/pages/filmPage/FilmPage";
 import { LoginPage } from "./ui/pages/loginPage/LoginPage";
 import { MainPage } from "./ui/pages/mainPage/MainPage";
@@ -9,6 +9,7 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
+                    <Route path="/" element={<Navigate to={"/login"}></Navigate>}></Route>
                     <Route path="/login" element={<LoginPage></LoginPage>}></Route>
                     <Route path="/search" element={<MainPage content={<SearchPage></SearchPage>}></MainPage>}></Route>
                     <Route path="/film/:filmId" element={<MainPage content={<FilmPage></FilmPage>}></MainPage>}></Route>
