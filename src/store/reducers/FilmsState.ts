@@ -114,7 +114,7 @@ export function fetchFilmAction(id: FilmId, user: User | null) {
 function getApiService(user: User) {
     user;
     // const dbService = new ImdbApiService(new ImdbUrlGenerator(user.apiKey));
-    const dbService = new FakeApiService();
+    const dbService = new FakeApiService({ timeout: { min: 1000, max: 4000 } });
     return new ApiService(dbService);
 }
 
